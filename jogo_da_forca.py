@@ -1,4 +1,4 @@
-import os
+import os #módulo utilizado (também) para limpar o terminal.
 
 print('Bem vindo ao jogo da forca!')
 opc = input('Digite a opção desejada: [J]ogar ou [S]air. ').upper()
@@ -7,8 +7,13 @@ if opc == 'J':
   palavra_secreta = input('Digite a palavra secreta: ').upper()
   palavra_formada = ''
   letra_certa = ''
+  i = 0
 
 while opc == 'J':
+  i += 1
+  os.system('cls')
+  print(f'Palavra formada:', palavra_formada)
+  print(f'Tentativas: ', i)
   letra = input("Digite uma letra: ").upper()
 
   if len(letra) > 1: #validação do número de caracteres
@@ -27,8 +32,6 @@ while opc == 'J':
     else:
       palavra_formada += '_'
 
-  print(palavra_formada)
-
   if palavra_formada == palavra_secreta:
     os.system('cls')
     print(f'Parabéns, você descobriu a palavra secreta: {palavra_secreta}!')
@@ -40,6 +43,7 @@ while opc == 'J':
       palavra_secreta = input('Digite a nova palavra secreta: ').upper()
       palavra_formada = ''
       letra_certa = ''
+      i = 0
     else:
       print('Digite uma opção válida')
       continue
